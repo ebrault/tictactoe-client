@@ -7,29 +7,31 @@ const ui = require('./ui.js')
 const onNewGame = function (event) {
   event.preventDefault()
   api.newGame()
-    .then(() => {})
-    .catch(() => {})
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
 }
 
 const onGetGames = function (event) {
   event.preventDefault()
   api.getGames()
-    .then(() => {})
-    .catch(() => {})
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
 }
 
 const onGetOneGame = function (event) {
   event.preventDefault()
-  api.getOneGame()
-    .then(() => {})
-    .catch(() => {})
+  const data = getFormFields(event.target)
+  api.getOneGame(data)
+    .then(ui.getOneGameSuccess)
+    .catch(ui.getOneGameFailure)
 }
 
 const onUpdateGame = function (event) {
   event.preventDefault()
-  api.updateGame()
-    .then(() => {})
-    .catch(() => {})
+  const data = getFormFields(event.target)
+  api.updateGame(data)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
 
 module.exports = {
