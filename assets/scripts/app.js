@@ -15,7 +15,7 @@ $(() => {
   $('#sign-out-button').on('click', userEvents.onSignOut)
   $('#change-password-form').on('submit', userEvents.onChangePassword)
   $('#new-game-button').on('click', () => {})
-  $('#get-all-games-button').on('click', () => {})
+  $('#get-all-games-button').on('click', gameEvents.onGetGames)
   $('#get-one-game-form').on('submit', () => {})
   $('.update-game').on('click', () => {})
 })
