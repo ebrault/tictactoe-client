@@ -15,21 +15,21 @@ const onGetGames = function (event) {
   event.preventDefault()
   api.getGames()
     .then(ui.getGamesSuccess)
-    .catch(ui.getGamesFailure)
+    .catch(ui.getGameFailure)
 }
 
 const onGetOneGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.getOneGame(data)
+  const gameData = getFormFields(event.target)
+  api.getOneGame(gameData)
     .then(ui.getOneGameSuccess)
     .catch(ui.getOneGameFailure)
 }
 
 const onUpdateGame = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.updateGame(data)
+  const gameData = getFormFields(event.target)
+  api.updateGame(gameData)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
 }

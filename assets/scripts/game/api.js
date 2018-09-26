@@ -23,8 +23,8 @@ const onGetGames = function () {
   })
 }
 
-const onGetOneGame = function () {
-  const gameId = game.id
+const onGetOneGame = function (gameData) {
+  const gameId = gameData.game.id
   return $.ajax({
     url: config.apiUrl + `/games${gameId}`,
     headers: {
@@ -35,7 +35,7 @@ const onGetOneGame = function () {
 }
 
 const onUpdateGame = function (gameData) {
-  const gameId = game.id
+  const gameId = gameData.game.id
   return $.ajax({
     url: config.apiUrl + `games${gameId}`,
     headers: {
