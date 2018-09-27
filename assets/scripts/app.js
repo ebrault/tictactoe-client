@@ -15,17 +15,20 @@ $(() => {
   const gameBoard = ['', '', '', '', '', '', '', '', '']
   let gameOver = false
   console.log('It is Xs Turn!')
-  const click = function (square) {
-    $('#square' + String(square)).html = turn
+  const click = function (event) {
+    const dataSquare = event.target.getAttribute('data-square')
+    console.log(dataSquare)
     if (gameOver === true) {
-    } else if (gameBoard[square] === '') {
-      gameBoard[square] = turn
+    } else if (gameBoard[dataSquare] === '') {
+      $(`#${dataSquare}`).html(`${turn}`)
+      gameBoard[dataSquare] = turn
+      console.log(gameBoard)
       const statusOfWinnerCheck = checkForWinner()
       if (statusOfWinnerCheck) {
         if (statusOfWinnerCheck === 'draw') {
         } else {
         }
-        console.log(turn + 'has won the game!')
+        console.log(turn + ' has won the game!')
         gameOver = true
       }
     }
@@ -77,4 +80,5 @@ $(() => {
       return false
     }
   }
+  $('.square').on('click', click)
 })
