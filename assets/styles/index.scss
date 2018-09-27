@@ -2,7 +2,7 @@
 
 $square-background-color: #ffffff;
 $square-border-color: #000000;
-$game-play-font-color: #fff
+
 
 .square {
   background-color: square-background-color;
@@ -10,12 +10,7 @@ $game-play-font-color: #fff
   height: 170px;
 }
 
-.game-play {
-  font-size: 127px;
-  font-family: helvetica;
-}
-
-.top{
+.top {
   border-top: none;
 }
 
