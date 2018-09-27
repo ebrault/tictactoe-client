@@ -14,7 +14,7 @@ $(() => {
   let turn = 'X'
   const gameBoard = ['', '', '', '', '', '', '', '', '']
   let gameOver = false
-  console.log('It is s Turn!')
+  console.log(`It is ${turn}s Turn!`)
   const click = function (event) {
     const dataSquare = event.target.getAttribute('data-square')
     console.log(dataSquare)
@@ -32,11 +32,11 @@ $(() => {
         gameOver = true
       }
     }
-    if (turn === 'x') {
-      turn = 'o'
+    if (turn === 'X') {
+      turn = 'O'
       console.log(`It is ${turn}'s turn'`)
-    } else if (turn === 'o') {
-      turn = 'x'
+    } else if (turn === 'O') {
+      turn = 'X'
       console.log(`It is ${turn}'s turn`)
     }
   }
@@ -81,13 +81,4 @@ $(() => {
     }
   }
   $('.square').on('click', click)
-  const newGame = function () {
-    const gameBoard = ['', '', '', '', '', '', '', '', '']
-    const gameOver = false
-    let turn = 'X'
-    console.log(`It is ${turn}'s turn`)
-    for (let i = 0; i <= gameBoard.length; i++) {
-      $('#dataSquare').html('')
-    }
-  }
 })
