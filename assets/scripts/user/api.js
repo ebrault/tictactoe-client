@@ -3,30 +3,30 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const signUp = function (userData) {
+const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
-    data: userData
+    data
   })
 }
 
-const signIn = function (userData) {
+const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
-    data: userData
+    data
   })
 }
 
-const changePassword = function (passwordData) {
+const changePassword = function (data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
-    data: passwordData
+    data
   })
 }
 
