@@ -10,15 +10,80 @@ const userEvents = require('user/events.js')
 const gameEvents = require('game/events.js')
 
 $(() => {
+  /*
   const gameBoard = []
   const newGame = function () {
     const gameBoard = ['', '', '', '', '', '', '', '', '']
     return gameBoard
   }
-  const play = function () {
-    // Define current PLAYER
-    // If Player is Player X
-    // Player clicks square
+  const play = function (index) {
+    let whoseTurn = 'X'
+    let gameOver = false
+    if (gameOver) {
+      return
+    }
+    if (gameBoard[index] === '') {
+      gameBoard[index] = whoseTurn
+      const statusOfWinnerCheck = checkForWinner()
+      if (statusOfWinnerCheck === 'draw') {
+      } else {
+      }
+      $('#display-message').html(whoseTurn + 'has won the game!')
+      gameOver = true
+    }
+    if (whoseTurn === 'X') {
+      whoseTurn = 'O'
+      $('#display-message').html(`It is ${whoseTurn}'s Turn!`)
+    } else {
+      whoseTurn = 'X'
+      $('#display-message').html(`It is ${whoseTurn}'s Turn!'`)
+    }
+    const checkForWinner = function () {
+      if (gameBoard[0] !== '') {
+        if (gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2]) {
+          return whoseTurn
+        }
+        if (gameBoard[0] === gameBoard[3] && gameBoard[3] === gameBoard[6]) {
+          return whoseTurn
+        }
+      }
+      if (gameBoard[4] !== '') {
+        if (gameBoard[4] === gameBoard[0] && gameBoard[4] === gameBoard[8]) {
+          return whoseTurn
+        }
+        if (gameBoard[4] === gameBoard[2] && gameBoard[4] === gameBoard[6]) {
+          return whoseTurn
+        }
+        if (gameBoard[4] === gameBoard[1] && gameBoard[4] === gameBoard[7]) {
+          return (whoseTurn)
+        }
+        if (gameBoard[4] === gameBoard[3] && gameBoard[4] === gameBoard[5]) {
+          return (whoseTurn)
+        }
+      }
+      if (gameBoard[8] !== '') {
+        if (gameBoard[8] === gameBoard[7] && gameBoard[8] === gameBoard[6]) {
+          return whoseTurn
+        }
+        if (gameBoard[8] === gameBoard[5] && gameBoard[8] === gameBoard[2]) {
+          return whoseTurn
+        }
+      }
+      let isADraw = false
+      for (let i = 0; i <= 9; i++) {
+        if (gameBoard[i] === false) {
+          break
+        } else if (i === 9) {
+          let isADraw = true
+        }
+        if (isADraw) {
+          return 'Draw!'
+        } else {
+          return false
+        }
+        }
+      }
+    }
     // onUpdateGame is called
     // Array value associated with square clicked is set to X
     // HTML value of square is set to X
@@ -28,45 +93,14 @@ $(() => {
     // onUpdateGame is called
     // Array value associated with quare clicked is set to O
     // HTML value of square is set to O
-    // Switch player until win/draw conditions met
-    const checkWin = function () {
-      if (gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2] &&
-        gameBoard[0] === gameBoard[2]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[3] === gameBoard[4] && gameBoard[4] === gameBoard[5] &&
-        gameBoard[3] === gameBoard[5]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[6] === gameBoard[7] && gameBoard[7] === gameBoard[8] &&
-        gameBoard[6] === gameBoard[8]) {
-        console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[0] === gameBoard[3] && gameBoard[3] === gameBoard[6] &&
-        gameBoard[0] === gameBoard[6]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[1] === gameBoard[4] && gameBoard[4] === gameBoard[7] &&
-        gameBoard[1] === gameBoard[7]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[2] === gameBoard[5] && gameBoard[5] === gameBoard[8] &&
-        gameBoard[2] === gameBoard[8]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8] &&
-        gameBoard[0] === gameBoard[8]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      } else if (gameBoard[2] === gameBoard[4] && gameBoard[4] === gameBoard[6] &&
-        gameBoard[2] === gameBoard[6]) {
-        return console.log(`Player ${PLAYER} Wins!`)
-      }
-
-        const checkDraw = function () {
-        // Check for Draws
-      }
-    }
   }
+  */
   $('#sign-up-form').on('submit', userEvents.onSignUp)
   $('#sign-in-form').on('submit', userEvents.onSignIn)
   $('#sign-out-button').on('click', userEvents.onSignOut)
   $('#change-password-form').on('submit', userEvents.onChangePassword)
-  $('#new-game-button').on('click', gameEvents.onNewGame, newGame)
+  $('#new-game-button').on('click', gameEvents.onNewGame)
   $('#get-all-games-button').on('click', gameEvents.onGetGames)
   $('#get-one-game-form').on('submit', gameEvents.onGetOneGame)
-  $('.update-game').on('click', () => {})
+  $('.update-game').on('click', gameEvents.onUpdateGame)
 })
