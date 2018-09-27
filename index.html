@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>Tic Tac Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -23,44 +23,69 @@
         <input required name=credentials[password_confirmation] type="password" placeholder="Password Confirmation" />
         <input type="submit" />
     </form>
+    <br />
     <form id="sign-in-form">
       <legend>Sign In!</legend>
         <input required name=credentials[email] type="email" placeholder="Email" />
         <input required name=credentials[password] type="password" placeholder="Password" />
         <input type="submit" />
     </form>
+    <br />
     <button id="sign-out-button" class="hidden">Sign Out!</button>
+    <br />
     <form id="change-password-form" class="hidden">
       <legend>Change Password!</legend>
         <input required name=passwords[old] type="password" placeholder="Old Password" />
         <input required name=passwords[new] type="password" placeholder="New Password" />
         <input type="submit" />
     </form>
+    <br />
     <button id="get-all-games-button" class="hidden">Get All Games!</button>
+    <br />
     <form id="get-one-game-form" class="hidden">
       <legend>Get One Game</legend>
         <input required name="games[id]" type="text" placeholder="ID" />
         <input type="submit" />
     </form>
+    <br />
     <h2 id="display-message"></h2>
   </header>
   <div id="game-board">
     <button id="new-game-button">Click to start a new game</button>
-    <div class="ticTacToe">
-      <div class="column">
-        <span class="square" id="square-zero"></span>
-        <span class="square" id="square-one"></span>
-        <span class="square" id="quare-two"></span>
+    <br />
+    <div id="tic-tac-toe" class="container">
+      <div class="row">
+        <div class="col-md-2 square top left" onclick="clicked ('.square-zero')">
+          <span class="game-play"></span>
+        </div>
+        <div class="col-md-2 square top" onclick="clicked ('.square-one')">
+          <span class="game-play"></span>
+        </div>
+        <div class="col-md-2 square top right" onclick="clicked ('.square-two')">
+          <span class="game-play"></span>
+        </div>
       </div>
-      <div class="column">
-        <span class="square" id="square-three"></span>
-        <span class="square" id="square-four"></span>
-        <span class="square" id="square-five"></span>
+      <div class="row">
+        <div class="col-md-2 square left" onclick="clicked ('.square-three')">
+          <span class="game-play"></span>
+        </div>
+        <div class="col-md-2 square" onclick="clicked ('.square-four')">
+          <span class="game-play"></span>
+        </div>
+        <div class="col-md-2 square right" onclick="clicked ('.square-five')">
+          <span class="game-play"></span>
+        </div>
       </div>
-      <div class="column">
-        <span class="square" id="square-six"></span>
-        <span class="square" id="square-seven"></span>
-        <span class="square" id="square-eight"></span>
+      <div class="row">
+        <div class="col-md-2 square bottom left" onclick="clicked ('.square-six')">
+          <span class="game-play"></span>
+        </div>
+        <div class="col-md-2 square bottom" onclick="clicked ('.square-seven')">
+          <span class="game-play"></span>
+        </div>
+        <div class="col-md-2 square bottom right" onclick="clicked ('.square-eight')">
+          <span class="game-play"></span>
+        </div>
       </div>
     </div>
   </div>
