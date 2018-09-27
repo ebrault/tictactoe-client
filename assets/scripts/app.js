@@ -8,15 +8,6 @@
 /*
 const userEvents = require('user/events.js')
 const gameEvents = require('game/events.js')
-
-$(() => {
-  $('#sign-up-form').on('submit', userEvents.onSignUp)
-  $('#sign-in-form').on('submit', userEvents.onSignIn)
-  $('#sign-out-button').on('click', userEvents.onSignOut)
-  $('#change-password-form').on('submit', userEvents.onChangePassword)
-  $('#new-game-button').on('click', () => {})
-  $('#get-all-games-button').on('click', () => {})
-  $('#get-one-game-form').on('submit', () => {})
-  $('.update-game').on('click', () => {})
-})
 */
+
+$(() => {})
