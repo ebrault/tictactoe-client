@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const logic = require('./logic.js')
 
 const onNewGame = function (event) {
   event.preventDefault()
