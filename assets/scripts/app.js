@@ -17,7 +17,6 @@ $(() => {
   $('#new-game-button').on('click', gameEvents.onNewGame)
   $('#get-all-games-button').on('click', gameEvents.onGetGames)
   $('#get-one-game-form').on('submit', gameEvents.onGetOneGame)
-  /*
   $('#0').on('click', gameEvents.onUpdateGame)
   $('#1').on('click', gameEvents.onUpdateGame)
   $('#2').on('click', gameEvents.onUpdateGame)
@@ -27,5 +26,4 @@ $(() => {
   $('#6').on('click', gameEvents.onUpdateGame)
   $('#7').on('click', gameEvents.onUpdateGame)
   $('#8').on('click', gameEvents.onUpdateGame)
-  */
 })

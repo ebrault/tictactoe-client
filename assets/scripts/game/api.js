@@ -2,6 +2,7 @@
 
 const config = require('../config.js')
 const store = require('../store.js')
+const logic = require('./logic')
 
 const onNewGame = function () {
   return $.ajax({
@@ -14,6 +15,7 @@ const onNewGame = function () {
 }
 
 const onGetGames = function () {
+  console.log(logic.turn)
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
@@ -35,8 +37,9 @@ const onGetOneGame = function () {
 }
 */
 const onUpdateGame = function (index, value, over) {
+  console.log(store.id)
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.id,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -45,9 +48,9 @@ const onUpdateGame = function (index, value, over) {
       'game': {
         'cell': {
           'index': index,
-          'value': value
+          'value': store.turn
         },
-        'over': !!over
+        'over': over
       }
     }
   })

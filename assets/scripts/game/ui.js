@@ -3,9 +3,10 @@
 const store = require('../store.js')
 const logic = require('./logic.js')
 
-const newGameSuccess = function () {
+const newGameSuccess = function (response) {
   $('#display-message').html('New game started!')
   $('#display-message').css('color', 'green')
+  store.id = response.game.id
 }
 
 const newGameFailure = function () {
@@ -29,6 +30,7 @@ const getGamesFailure = function () {
 const updateGameSuccess = function (response) {
   $('#display-message').html('Nice move!')
   $('#display-message').css('color', 'green')
+  console.log(logic.gameBoard = response.game.cells)
 }
 
 const updateGameFailure = function () {

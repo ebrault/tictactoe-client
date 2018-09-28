@@ -1,59 +1,61 @@
 const store = require('../store.js')
 
-let turn = 'X'
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 let gameOver = false
-console.log(`It is ${turn}s Turn!`)
+console.log(`It is ${store.turn}s Turn!`)
 const click = function (event) {
   const dataSquare = event.target.getAttribute('data-square')
   console.log(dataSquare)
   if (gameOver === true) {
   } else if (gameBoard[dataSquare] === '') {
-    $(`#${dataSquare}`).html(`${turn}`)
-    gameBoard[dataSquare] = turn
-    console.log(gameBoard)
+    $(`#${dataSquare}`).html(`${store.turn}`)
+    gameBoard[dataSquare] = store.turn
+    console.log('Click', gameBoard)
     const statusOfWinnerCheck = checkForWinner()
     if (statusOfWinnerCheck) {
       if (statusOfWinnerCheck === 'draw') {
       } else {
       }
-      console.log(turn + ' has won the game!')
+      console.log(store.turn + ' has won the game!')
       gameOver = true
     }
   }
-  if (turn === 'X') {
-    turn = 'O'
-    console.log(`It is ${turn}'s turn'`)
-  } else if (turn === 'O') {
-    turn = 'X'
-    console.log(`It is ${turn}'s turn`)
+  const switchUser = function () {
+    if (store.turn === 'x') {
+      store.turn = 'o'
+      console.log(`It is ${store.turn}'s turn'`)
+    } else if (store.turn === 'o') {
+      store.turn = 'x'
+      console.log(`It is ${store.turn}'s turn`)
+    }
   }
+  switchUser()
 }
 
 const checkForWinner = function () {
   if (gameBoard[0] !== '') {
     if (gameBoard[0] === gameBoard[1] && gameBoard[1] === gameBoard[2]) {
-      return turn
+      return store.turn
     } else if (gameBoard[0] === gameBoard[3] && gameBoard[3] === gameBoard[6]) {
-      return turn
+      return store.turn
     }
   }
   if (gameBoard[4] !== '') {
     if (gameBoard[0] === gameBoard[4] && gameBoard[4] === gameBoard[8]) {
-      return turn
+      return store.turn
     } else if (gameBoard[2] === gameBoard[4] && gameBoard[4] === gameBoard[6]) {
-      return turn
+      return store.turn
     } else if (gameBoard[1] === gameBoard[4] && gameBoard[4] === gameBoard[7]) {
-      return turn
+      return store.turn
     } else if (gameBoard[3] === gameBoard[4] && gameBoard[4] === gameBoard[5]) {
-      return turn
+      return store.turn
     }
   }
   if (gameBoard[8] !== '') {
     if (gameBoard[8] === gameBoard[5] && gameBoard[5] === gameBoard[2]) {
-      return turn
+      return store.turn
     } else if (gameBoard[8] === gameBoard[7] && gameBoard[7] === gameBoard[6]) {
-      return turn
+      return store.turn
     }
   }
   let isADraw = false
@@ -69,8 +71,9 @@ const checkForWinner = function () {
     return false
   }
 }
-$('.square').on('click', click)
+// $('.square').on('click', click)
 
 module.exports = {
-  checkForWinner
+  checkForWinner,
+  click
 }
