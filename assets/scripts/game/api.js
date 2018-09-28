@@ -22,7 +22,7 @@ const onGetGames = function () {
     method: 'GET'
   })
 }
-
+/*
 const onGetOneGame = function () {
   const gameId = game.id
   return $.ajax({
@@ -33,22 +33,21 @@ const onGetOneGame = function () {
     method: 'GET'
   })
 }
-
-const onUpdateGame = function (gameData) {
-  const gameId = game.id
+*/
+const onUpdateGame = function (Id, value, index, over) {
   return $.ajax({
-    url: config.apiUrl + `games${gameId}`,
+    url: config.apiUrl + `games${Id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
-    data: gameData
+    data: {
+    }
   })
 }
 
 module.exports = {
   onNewGame,
   onGetGames,
-  onGetOneGame,
   onUpdateGame
 }

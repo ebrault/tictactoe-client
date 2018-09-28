@@ -24,7 +24,7 @@ const getGamesFailure = function () {
   $('#display-message').html('Something went wrong, please try again!')
   $('#display-message').css('color', 'red')
 }
-
+/*
 const getOneGameSuccess = function (response) {
   $('#display-message').html('')
   const game = response.game
@@ -47,14 +47,10 @@ const updateGameFailure = function () {
   $('#display-message').html('Something went wrong, please try again!')
   $('#display-message').css('color', 'red')
 }
-
+*/
 module.exports = {
   newGameSuccess,
   newGameFailure,
   getGamesSuccess,
-  getGamesFailure,
-  getOneGameSuccess,
-  getOneGameFailure,
-  updateGameSuccess,
-  updateGameFailure
+  getGamesFailure
 }

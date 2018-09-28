@@ -21,6 +21,8 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
+  $('#new-game-button').removeClass('hidden')
+  $('#get-all-games-button').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
 }
@@ -51,6 +53,8 @@ const signOutSuccess = function () {
   $('#change-password-form').trigger('reset')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
+  $('#get-all-games-button').addClass('hidden')
+  $('#new-game-button').addClass('hidden')
   $('#change-password-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
 }
