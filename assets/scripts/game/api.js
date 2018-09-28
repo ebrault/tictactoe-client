@@ -34,14 +34,21 @@ const onGetOneGame = function () {
   })
 }
 */
-const onUpdateGame = function (Id, value, index, over) {
+const onUpdateGame = function (index, value, over) {
   return $.ajax({
-    url: config.apiUrl + `games${Id}`,
+    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
     data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': !!over
+      }
     }
   })
 }

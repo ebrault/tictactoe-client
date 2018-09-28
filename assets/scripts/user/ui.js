@@ -23,6 +23,7 @@ const signInSuccess = function (response) {
   $('#sign-in-form').addClass('hidden')
   $('#new-game-button').removeClass('hidden')
   $('#tic-tac-toe').removeClass('hidden')
+  $('#play-again-button').removeClass('hidden')
   $('#get-all-games-button').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')

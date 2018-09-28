@@ -71,12 +71,6 @@ const checkForWinner = function () {
 }
 $('.square').on('click', click)
 
-const storeNewGame = function (data) {
-  store.game = data.game
-  store.gameBoard = gameBoard
-  store.currentTurn = turn
-}
-
 module.exports = {
-  storeNewGame
+  checkForWinner
 }
