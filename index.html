@@ -50,7 +50,12 @@
     <br />
     <h2 id="display-message"></h2>
 </header>
-  <h2 id="game-message" text-align="right"></h2>
+<div id="game-display-messages">
+<p id="turn-status" class="hidden">It is x's turn</p>
+<p id="move-status" class="hidden"></p>
+<p id="win-status"></p>
+<p id="display-games" class="hidden"></p>
+</div>
   <div id="game-board">
     <button id="new-game-button" class="hidden">Click to start a new game</button>
     <br />
@@ -71,10 +76,9 @@
         <div id='8' class="col-md-2 square bottom right" data-square='8'></div>
       </div>
     </div>
-    <div class="display-games"></div>
   </div>
   <footer>
-    <p>Designed With Love by Emmet Brault</p>
+    <p>Designed by Emmet Brault</p>
   </footer>
 </body>
 

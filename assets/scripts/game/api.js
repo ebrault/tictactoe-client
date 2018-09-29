@@ -24,18 +24,7 @@ const onGetGames = function () {
     method: 'GET'
   })
 }
-/*
-const onGetOneGame = function () {
-  const gameId = game.id
-  return $.ajax({
-    url: config.apiUrl + `/games${gameId}`,
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    },
-    method: 'GET'
-  })
-}
-*/
+
 const onUpdateGame = function (index, value, over) {
   console.log(store.id)
   return $.ajax({

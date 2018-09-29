@@ -14,19 +14,25 @@ const click = function (event) {
     const statusOfWinnerCheck = checkForWinner()
     if (statusOfWinnerCheck) {
       if (statusOfWinnerCheck === 'draw') {
+
       } else {
+        console.log(store.turn + ' has won the game!')
+        $('#win-status').html(`${store.turn} has won the game!`)
+        $('#turn-status').addClass('hidden')
+        gameOver = true
+        return
       }
-      console.log(store.turn + ' has won the game!')
-      gameOver = true
     }
   }
   const switchUser = function () {
     if (store.turn === 'x') {
       store.turn = 'o'
       console.log(`It is ${store.turn}'s turn'`)
+      $('#turn-status').html(`It is ${store.turn}'s turn`)
     } else if (store.turn === 'o') {
       store.turn = 'x'
       console.log(`It is ${store.turn}'s turn`)
+      $('#turn-status').html(`It is ${store.turn}'s turn`)
     }
   }
   switchUser()
@@ -71,9 +77,24 @@ const checkForWinner = function () {
     return false
   }
 }
+
+const playAgain = function () {
+  gameOver = false
+  const dataSquare = event.target.getAttribute('data-square')
+  for (let i = 0; i <= 8; i++) {
+    gameBoard[i] = ''
+  }
+  store.gameBoard = gameBoard
+  store.turn = 'x'
+  store.over = false
+  $('#turn-status').html(`It is ${store.turn}'s turn!'`)
+  $('.square').html('')
+}
+
 // $('.square').on('click', click)
 
 module.exports = {
   checkForWinner,
-  click
+  click,
+  playAgain
 }

@@ -6,6 +6,7 @@ const logic = require('./logic.js')
 const newGameSuccess = function (response) {
   $('#display-message').html('New game started!')
   $('#display-message').css('color', 'green')
+  $('#tic-tac-toe').removeClass('hidden')
   store.id = response.game.id
 }
 
@@ -14,12 +15,9 @@ const newGameFailure = function () {
   $('#display-message').css('color', 'red')
 }
 
-const getGamesSuccess = function (response) {
-  $('#displayMessage').html('')
-  response.games.forEach(function (games) {
-    const gameHTML = (``)
-    $('#display-message').append(gameHTML)
-  })
+const getGamesSuccess = function (data) {
+  $('#display-games').removeClass('hidden')
+  $('#display-games').html(`Games Played: ${data.games.length}`)
 }
 
 const getGamesFailure = function () {

@@ -7,8 +7,9 @@ const store = require('../store.js')
 const logic = require('./logic.js')
 
 const onNewGame = function (event) {
-  $('.square').html('')
-  store.turn = 'x'
+  $('#turn-status').removeClass('hidden')
+  $('#win-status').html('')
+  logic.playAgain()
   event.preventDefault()
   api.onNewGame()
     .then(ui.newGameSuccess)
@@ -24,11 +25,11 @@ const onGetGames = function (event) {
 
 const onUpdateGame = function (event) {
   logic.click(event)
-  console.log(logic.turn)
+  console.log(store.turn)
   event.preventDefault()
   const index = parseInt(event.target.getAttribute('id'))
   console.log(typeof index)
-  const value = logic.turn
+  const value = store.turn
   const over = logic.gameOver
   api.onUpdateGame(index, value, over)
     .then(ui.updateGameSuccess)
