@@ -80,14 +80,13 @@ const checkForWinner = function () {
 
 const playAgain = function () {
   gameOver = false
-  const dataSquare = event.target.getAttribute('data-square')
   for (let i = 0; i <= 8; i++) {
     gameBoard[i] = ''
   }
   store.gameBoard = gameBoard
   store.turn = 'x'
   store.over = false
-  $('#turn-status').html(`It is ${store.turn}'s turn!'`)
+  $('#turn-status').html(`It is ${store.turn}'s turn!`)
   $('.square').html('')
 }
 
