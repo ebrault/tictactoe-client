@@ -3,7 +3,18 @@ const store = require('../store.js')
 const gameBoard = ['', '', '', '', '', '', '', '', '']
 let moveStatus = true
 let gameOver = false
-console.log(`It is ${store.turn}s Turn!`)
+const switchUser = function () {
+  if (store.turn === 'x') {
+    store.turn = 'o'
+    console.log(`It is ${store.turn}'s turn'`)
+    $('#turn-status').html(`It is ${store.turn}'s turn`)
+  } else if (store.turn === 'o') {
+    store.turn = 'x'
+    console.log(`It is ${store.turn}'s turn`)
+    $('#turn-status').html(`It is ${store.turn}'s turn`)
+  }
+}
+console.log(`It is ${store.turn}'s Turn!`)
 const click = function (event) {
   const dataSquare = event.target.getAttribute('data-square')
   console.log(dataSquare)
@@ -11,6 +22,7 @@ const click = function (event) {
   } else if (gameBoard[dataSquare] === '') {
     $(`#${dataSquare}`).html(`${store.turn}`)
     gameBoard[dataSquare] = store.turn
+    switchUser()
     console.log('Click', gameBoard)
     const statusOfWinnerCheck = checkForWinner()
     if (statusOfWinnerCheck) {
@@ -21,7 +33,6 @@ const click = function (event) {
         $('#win-status').html(`${store.turn} has won the game!`)
         $('#turn-status').addClass('hidden')
         gameOver = true
-        return
       }
     }
   } else {
@@ -30,18 +41,6 @@ const click = function (event) {
     $('#move-status').removeClass('hidden')
     $('#move-status').html('Invalid move! Please try again!')
   }
-  const switchUser = function () {
-    if (store.turn === 'x') {
-      store.turn = 'o'
-      console.log(`It is ${store.turn}'s turn'`)
-      $('#turn-status').html(`It is ${store.turn}'s turn`)
-    } else if (store.turn === 'o') {
-      store.turn = 'x'
-      console.log(`It is ${store.turn}'s turn`)
-      $('#turn-status').html(`It is ${store.turn}'s turn`)
-    }
-  }
-  switchUser()
 }
 
 const checkForWinner = function () {
@@ -100,7 +99,6 @@ const playAgain = function () {
 }
 
 // $('.square').on('click', click)
-
 module.exports = {
   checkForWinner,
   click,
