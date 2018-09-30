@@ -19,12 +19,17 @@ const signInSuccess = function (response) {
   $('#display-message').css('color', 'green')
   $('#sign-in-form').trigger('reset')
   store.user = response.user
+<<<<<<< HEAD
   $('.square').html('')
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#new-game-button').removeClass('hidden')
   $('#play-again-button').removeClass('hidden')
   $('#get-all-games-button').removeClass('hidden')
+=======
+  $('#sign-up-form').addClass('hidden')
+  $('#sign-in-form').addClass('hidden')
+>>>>>>> JS
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
 }
@@ -50,6 +55,7 @@ const changePasswordFailure = function () {
 const signOutSuccess = function () {
   $('#display-message').html('Sign out successful!')
   $('#display-message').css('color', 'green')
+<<<<<<< HEAD
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
   $('#change-password-form').trigger('reset')
@@ -62,6 +68,10 @@ const signOutSuccess = function () {
   $('.display-games').addClass('hidden')
   $('#get-all-games-button').addClass('hidden')
   $('#new-game-button').addClass('hidden')
+=======
+  $('#sign-up-form').removeClass('hidden')
+  $('#sign-in-form').removeClass('hidden')
+>>>>>>> JS
   $('#change-password-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
 }

@@ -1,7 +1,7 @@
 curl "https://tic-tac-toe-wdi.herokuapp.com/games/${ID}" \
   --include \
   --request PATCH \
-  --header "Content-Type: application\json" \
+  --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
       "game": {
@@ -9,7 +9,7 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/games/${ID}" \
           "index": "'"${INDEX}"'",
           "value": "'"${VALUE}"'"
         },
-        "over": "'"${BOOLEAN}"'"
+        "over": "'"${OVER}"'"
       }
   }'
 
