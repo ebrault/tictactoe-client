@@ -40,8 +40,8 @@ const click = function (event) {
         store.turn = 'x'
         console.log(`It is ${store.turn}'s turn`)
         $('#turn-status').html(`It is ${store.turn}'s turn`)
-      } else {
       }
+    } else {
     }
   }
   switchUser()
