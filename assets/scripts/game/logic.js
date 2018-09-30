@@ -1,6 +1,7 @@
 const store = require('../store.js')
 
 const gameBoard = ['', '', '', '', '', '', '', '', '']
+let moveStatus = true
 let gameOver = false
 console.log(`It is ${store.turn}s Turn!`)
 const click = function (event) {
@@ -24,19 +25,23 @@ const click = function (event) {
       }
     }
   } else {
+    moveStatus = false
     console.log('Invalid move! Please try again!')
     $('#move-status').removeClass('hidden')
     $('#move-status').html('Invalid move! Please try again!')
   }
   const switchUser = function () {
-    if (store.turn === 'x') {
-      store.turn = 'o'
-      console.log(`It is ${store.turn}'s turn'`)
-      $('#turn-status').html(`It is ${store.turn}'s turn`)
-    } else if (store.turn === 'o') {
-      store.turn = 'x'
-      console.log(`It is ${store.turn}'s turn`)
-      $('#turn-status').html(`It is ${store.turn}'s turn`)
+    if (moveStatus === true) {
+      if (store.turn === 'x') {
+        store.turn = 'o'
+        console.log(`It is ${store.turn}'s turn'`)
+        $('#turn-status').html(`It is ${store.turn}'s turn`)
+      } else if (store.turn === 'o') {
+        store.turn = 'x'
+        console.log(`It is ${store.turn}'s turn`)
+        $('#turn-status').html(`It is ${store.turn}'s turn`)
+      } else {
+      }
     }
   }
   switchUser()
