@@ -23,6 +23,10 @@ const click = function (event) {
         return
       }
     }
+  } else {
+    console.log('Invalid move! Please try again!')
+    $('#move-status').removeClass('hidden')
+    $('#move-status').html('Invalid move! Please try again!')
   }
   const switchUser = function () {
     if (store.turn === 'x') {
@@ -88,6 +92,7 @@ const playAgain = function () {
   store.gameBoard = gameBoard
   store.turn = 'x'
   store.over = false
+  $('#move-status').addClass('hidden')
   $('#turn-status').html(`It is ${store.turn}'s turn!`)
   $('.square').html('')
 }
