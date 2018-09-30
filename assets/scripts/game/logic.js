@@ -31,17 +31,14 @@ const click = function (event) {
     $('#move-status').html('Invalid move! Please try again!')
   }
   const switchUser = function () {
-    if (moveStatus === true) {
-      if (store.turn === 'x') {
-        store.turn = 'o'
-        console.log(`It is ${store.turn}'s turn'`)
-        $('#turn-status').html(`It is ${store.turn}'s turn`)
-      } else if (store.turn === 'o') {
-        store.turn = 'x'
-        console.log(`It is ${store.turn}'s turn`)
-        $('#turn-status').html(`It is ${store.turn}'s turn`)
-      }
-    } else {
+    if (store.turn === 'x') {
+      store.turn = 'o'
+      console.log(`It is ${store.turn}'s turn'`)
+      $('#turn-status').html(`It is ${store.turn}'s turn`)
+    } else if (store.turn === 'o') {
+      store.turn = 'x'
+      console.log(`It is ${store.turn}'s turn`)
+      $('#turn-status').html(`It is ${store.turn}'s turn`)
     }
   }
   switchUser()
