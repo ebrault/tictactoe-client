@@ -72,7 +72,9 @@ const checkForWinner = function () {
       isADraw = true
     }
   } if (isADraw) {
-    return console.log('Draw')
+    console.log('Draw')
+    $('#win-status').html('Draw')
+    $('#turn-status').addClass('hidden')
   } else {
     return false
   }
