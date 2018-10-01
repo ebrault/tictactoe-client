@@ -24,8 +24,6 @@ const signInSuccess = function (response) {
   $('#sign-in-form').trigger('reset')
   store.user = response.user
   $('.square').html('')
-  $('#failure-display-message').addClass('hidden')
-  $('#failure-display-message').hide()
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#new-game-button').removeClass('hidden')
@@ -38,10 +36,10 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function () {
-  $('#failure-display-message').removeClass('hidden')
-  $('#failure-display-message').show()
-  $('#failure-display-message').html('Something went wrong, please try again!')
-  $('#failure-display-message').css('color', 'red')
+  $('#display-message').removeClass('hidden')
+  $('#display-message').show()
+  $('#display-message').html('Something went wrong, please try again!')
+  $('#display-message').css('color', 'red')
   $('#sign-in-form').trigger('reset')
 }
 
