@@ -75,6 +75,7 @@ const checkForWinner = function () {
       isADraw = true
     }
   } if (isADraw) {
+    $('#win-status').removeClass('hidden')
     $('#win-status').html('Draw')
     $('#turn-status').addClass('hidden')
   } else {
