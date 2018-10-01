@@ -21,6 +21,8 @@ const click = function (event) {
   if (gameOver === true) {
   } else if (gameBoard[dataSquare] === '') {
     $(`#${dataSquare}`).html(`${store.turn}`)
+    $('#display-message').removeClass('hidden')
+    $('#move-status').addClass('hidden')
     gameBoard[dataSquare] = store.turn
     switchUser()
     console.log('Click', gameBoard)
@@ -38,8 +40,10 @@ const click = function (event) {
   } else {
     moveStatus = false
     console.log('Invalid move! Please try again!')
+    $('#display-message').addClass('hidden')
     $('#move-status').removeClass('hidden')
     $('#move-status').html('Invalid move! Please try again!')
+    $('#move-status').css('color', 'red')
   }
 }
 
