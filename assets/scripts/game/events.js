@@ -25,10 +25,8 @@ const onGetGames = function (event) {
 
 const onUpdateGame = function (event) {
   logic.click(event)
-  console.log(store.turn)
   event.preventDefault()
   const index = parseInt(event.target.getAttribute('id'))
-  console.log(typeof index)
   const value = store.turn
   const over = logic.gameOver
   api.onUpdateGame(index, value, over)
