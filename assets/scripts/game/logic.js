@@ -1,43 +1,44 @@
 const store = require('../store.js')
 
 const gameBoard = ['', '', '', '', '', '', '', '', '']
-let moveStatus = true
 let gameOver = false
+console.log(`It is ${store.turn}s Turn!`)
 const switchUser = function () {
   if (store.turn === 'x') {
     store.turn = 'o'
+    console.log(`It is ${store.turn}'s turn'`)
     $('#turn-status').html(`It is ${store.turn}'s turn`)
   } else if (store.turn === 'o') {
     store.turn = 'x'
+    console.log(`It is ${store.turn}'s turn`)
     $('#turn-status').html(`It is ${store.turn}'s turn`)
   }
 }
 const click = function (event) {
   const dataSquare = event.target.getAttribute('data-square')
+  console.log(dataSquare)
   if (gameOver === true) {
   } else if (gameBoard[dataSquare] === '') {
-    $(`#${dataSquare}`).html(`${store.turn}`)
-    $('#display-message').removeClass('hidden')
-    $('#move-status').addClass('hidden')
-    gameBoard[dataSquare] = store.turn
     switchUser()
+    $(`#${dataSquare}`).html(`${store.turn}`)
+    gameBoard[dataSquare] = store.turn
+    console.log('Click', gameBoard)
     const statusOfWinnerCheck = checkForWinner()
     if (statusOfWinnerCheck) {
       if (statusOfWinnerCheck === 'draw') {
 
       } else {
-        console.log(gameBoard)
+        console.log(store.turn + ' has won the game!')
         $('#win-status').html(`${store.turn} has won the game!`)
         $('#turn-status').addClass('hidden')
         gameOver = true
+        return
       }
     }
   } else {
-    moveStatus = false
-    $('#display-message').addClass('hidden')
+    console.log('Invalid move! Please try again!')
     $('#move-status').removeClass('hidden')
     $('#move-status').html('Invalid move! Please try again!')
-    $('#move-status').css('color', 'red')
   }
 }
 
@@ -75,6 +76,7 @@ const checkForWinner = function () {
       isADraw = true
     }
   } if (isADraw) {
+    console.log('Draw')
     $('#win-status').html('Draw')
     $('#turn-status').addClass('hidden')
   } else {
@@ -96,6 +98,7 @@ const playAgain = function () {
 }
 
 // $('.square').on('click', click)
+
 module.exports = {
   checkForWinner,
   click,
