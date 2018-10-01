@@ -6,18 +6,14 @@ let gameOver = false
 const switchUser = function () {
   if (store.turn === 'x') {
     store.turn = 'o'
-    console.log(`It is ${store.turn}'s turn'`)
     $('#turn-status').html(`It is ${store.turn}'s turn`)
   } else if (store.turn === 'o') {
     store.turn = 'x'
-    console.log(`It is ${store.turn}'s turn`)
     $('#turn-status').html(`It is ${store.turn}'s turn`)
   }
 }
-console.log(`It is ${store.turn}'s Turn!`)
 const click = function (event) {
   const dataSquare = event.target.getAttribute('data-square')
-  console.log(dataSquare)
   if (gameOver === true) {
   } else if (gameBoard[dataSquare] === '') {
     $(`#${dataSquare}`).html(`${store.turn}`)
@@ -25,13 +21,11 @@ const click = function (event) {
     $('#move-status').addClass('hidden')
     gameBoard[dataSquare] = store.turn
     switchUser()
-    console.log('Click', gameBoard)
     const statusOfWinnerCheck = checkForWinner()
     if (statusOfWinnerCheck) {
       if (statusOfWinnerCheck === 'draw') {
 
       } else {
-        console.log(store.turn + ' has won the game!')
         $('#win-status').removeClass('hidden')
         $('#win-status').html(`${gameBoard[dataSquare]} has won the game!`)
         $('#turn-status').addClass('hidden')
@@ -40,7 +34,6 @@ const click = function (event) {
     }
   } else {
     moveStatus = false
-    console.log('Invalid move! Please try again!')
     $('#display-message').addClass('hidden')
     $('#move-status').removeClass('hidden')
     $('#move-status').html('Invalid move! Please try again!')
@@ -82,7 +75,6 @@ const checkForWinner = function () {
       isADraw = true
     }
   } if (isADraw) {
-    console.log('Draw')
     $('#win-status').html('Draw')
     $('#turn-status').addClass('hidden')
   } else {

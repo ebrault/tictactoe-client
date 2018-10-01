@@ -28,7 +28,6 @@ const getGamesFailure = function () {
 const updateGameSuccess = function (response) {
   $('#display-message').html('Nice move!')
   $('#display-message').css('color', 'green')
-  console.log(logic.gameBoard = response.game.cells)
 }
 
 const updateGameFailure = function () {

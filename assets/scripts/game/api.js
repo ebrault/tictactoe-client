@@ -15,7 +15,6 @@ const onNewGame = function () {
 }
 
 const onGetGames = function () {
-  console.log(logic.turn)
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
@@ -26,7 +25,6 @@ const onGetGames = function () {
 }
 
 const onUpdateGame = function (index, value, over) {
-  console.log(store.id)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.id,
     headers: {
