@@ -64,7 +64,7 @@ const signOutSuccess = function () {
   $('#turn-status').addClass('hidden')
   $('#win-status').addClass('hidden')
   $('#tic-tac-toe').addClass('hidden')
-  $('.display-games').addClass('hidden')
+  $('#display-games').addClass('hidden')
   $('#get-all-games-button').addClass('hidden')
   $('#new-game-button').addClass('hidden')
   $('#sign-up-form').removeClass('hidden')
