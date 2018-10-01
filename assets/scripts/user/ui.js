@@ -36,6 +36,8 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function () {
+  $('#display-message').removeClass('hidden')
+  $('#display-message').show()
   $('#display-message').html('Something went wrong, please try again!')
   $('#display-message').css('color', 'red')
   $('#sign-in-form').trigger('reset')
