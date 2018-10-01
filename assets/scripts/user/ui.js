@@ -24,6 +24,8 @@ const signInSuccess = function (response) {
   $('#sign-in-form').trigger('reset')
   store.user = response.user
   $('.square').html('')
+  $('#failure-display-message').addClass('hidden')
+  $('#failure-display-message').hide()
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#new-game-button').removeClass('hidden')
