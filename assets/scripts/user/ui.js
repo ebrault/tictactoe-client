@@ -18,6 +18,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   $('#display-message').removeClass('hidden')
+  $('#display-message').show()
   $('#display-message').html('Sign in successful!')
   $('#display-message').css('color', 'green')
   $('#sign-in-form').trigger('reset')
