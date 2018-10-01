@@ -32,7 +32,7 @@ const click = function (event) {
 
       } else {
         console.log(store.turn + ' has won the game!')
-        $('#win-status').show()
+        $('#win-status').removeClass('hidden')
         $('#win-status').html(`${gameBoard[dataSquare]} has won the game!`)
         $('#turn-status').addClass('hidden')
         gameOver = true
