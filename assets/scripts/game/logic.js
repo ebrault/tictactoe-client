@@ -99,6 +99,7 @@ const playAgain = function () {
   store.turn = 'x'
   store.over = false
   $('#display-message').show()
+  $('#display-games').html('')
   $('#move-status').addClass('hidden')
   $('#turn-status').html(`It is ${store.turn}'s turn!`)
   $('.square').html('')
