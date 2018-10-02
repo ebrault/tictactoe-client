@@ -12,6 +12,8 @@ const gameEvents = require('./game/events.js')
 $(() => {
   $('#sign-up-form').on('submit', userEvents.onSignUp)
   $('#sign-in-form').on('submit', userEvents.onSignIn)
+  $('#sign-up-form').on('click', userEvents.clearSignIn)
+  $('#sign-in-form').on('click', userEvents.clearSignUp)
   $('#change-password-form').on('submit', userEvents.onChangePassword)
   $('#sign-out-button').on('click', userEvents.onSignOut)
   $('#new-game-button').on('click', gameEvents.onNewGame)
