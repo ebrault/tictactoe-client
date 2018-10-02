@@ -12,7 +12,7 @@ const onSignUp = function (event) {
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
-
+/*
 const clearSignIn = function () {
   event.preventDefault()
   $('#sign-in-form').trigger('reset')
@@ -22,7 +22,7 @@ const clearSignUp = function () {
   event.preventDefault()
   $('#sign-up-form').trigger('reset')
 }
-
+*/
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
